@@ -32,8 +32,6 @@ def instructions():
     return ""
 
 
-instructions()
-
 # Main Routine goes here...
 played_before = yes_no("Have you played the "
                        "game before? ")
