@@ -18,4 +18,8 @@ guess = ""
 
 while guess != SECRET and guesses_left >= 1:
 
-    guess = int(input("Guess: "))   
+    guess = int(input("Guess: "))   # replace this with function
+
+    # checks that guess is not a duplicate
+    if guess in already_guessed:
+        print()
