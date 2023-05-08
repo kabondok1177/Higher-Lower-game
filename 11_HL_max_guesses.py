@@ -2,13 +2,13 @@
 
 import math
 
-for item in range(0,4):   # loop component for easy testing...
+for item in range(0, 4):  # loop component for easy testing...
 
-    low = int(input("Low: "))   # use int check in due course
+    low = int(input("Low: "))  # use int check in due course
     high = int(input("high: "))  # use int check in due course
 
     range = high - low + 1
-    max_raw = math.log2(range)  #finds maximum # of guesses use
+    max_raw = math.log2(range)  # finds maximum # of guesses use
     max_upped = math.ceil(max_raw)  # rounds up (ceil --> ceiling
     max_guesses = max_upped + 1
     print("Max Guesses: {}".format(max_guesses))

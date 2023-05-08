@@ -8,10 +8,10 @@
 # HL component 5 - Prevents duplicates guesses
 
 SECRET = 7
-GUESSES_ALLOWED = 5
+guesses_allowed = 5
 
 already_guessed = []
-guesses_left = GUESSES_ALLOWED
+guesses_left = guesses_allowed
 num_won = 0
 
 guess = ""
@@ -26,22 +26,23 @@ while guess != SECRET and guesses_left >= 1:
               "You *still* have {} guesses left".format(guesses_left))
         continue
 
-        guesses left -= 1
-        already_guessed.append(guess)
+    guesses_left -= 1
+    already_guessed.append(guess)
 
-        if guesses_left >= 1:
+    if guesses_left >= 1:
 
-            if guess < SECRET:
-                print("Too low,try a higher number. Guesses left:")
+        if guess < SECRET:
+            print("Too low,try a higher number. Guesses left:")
 
-            elif guess > SECRET:
-                print("Too high, try a lower number. Guesses left:")
-        else:
-            if guess < SECRET:
-                print("Too low!")
-            elif guess > SECRET:
-                print("Too high!")
+        elif guess > SECRET:
+            print("Too high, try a lower number. Guesses left:")
+    else:
+        if guess < SECRET:
+            print("Too low!")
+        elif guess > SECRET:
+            print("Too high!")
 
-if guess == SECRET:
+    if guess == SECRET:
+        print("well done")
 
 

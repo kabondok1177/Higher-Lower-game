@@ -9,7 +9,7 @@
 
 
 # Number checking function goes here
-def int_check(question, low=None, high=None):
+def int_check(question, low=None, high=None, exit_code=None):
     situation = ""
 
     # Check if both low and high values are given
@@ -22,8 +22,12 @@ def int_check(question, low=None, high=None):
 
         while True:
 
+            response = input(question)
+            if response == exit_code:
+                return response
+
             try:
-                response = int(input(question))
+                response = int(response)
 
                 # checks input is not too high or
                 # too low if a both upper and lower bounds
@@ -47,3 +51,9 @@ def int_check(question, low=None, high=None):
             except ValueError:
                 print("Please enter an integer")
                 continue
+
+
+rounds = int_check("How many rounds", 0, exit_code="")
+low_num = int_check("Enter a low number: ")
+high_num = int_check("Enter a high number: ", low_num)
+guess = int_check("Guess: ", low_num, high_num, "xxx")
