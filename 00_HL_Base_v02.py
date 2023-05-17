@@ -97,7 +97,7 @@ if played_before == "no":
     print("Program continues")
 
 #  Ask user number of rounds <enter> for infinite
-rounds = int_check("How many rounds", 1, exit_code="")
+rounds = int_check("How many rounds would you like to play?", 1, exit_code="")
 
 if rounds == "":
     mode = "infinite"
@@ -117,13 +117,14 @@ while end_game == "no":
 
     rounds_played += 1
 
+    secret = random.randint(low_number, high_number)
+
+    guesses_allowed = max_guesses
+    already_guessed = []
+    guesses_left = guesses_allowed
+
     # Start Round!!
     while True:
-
-        secret = 7
-        guesses_allowed = max_guesses
-        already_guessed = []
-        guesses_left = guesses_allowed
 
         guess = int_check("Guess (or 'xxx' to exit): ", low_number, high_number, "xxx")
         print("you guessed", guess)
@@ -134,8 +135,8 @@ while end_game == "no":
 
         # checks that guess is not a duplicate
         if guess in already_guessed:
-            print("You already guessed that number! Please try again"
-                  "You *still* have {} guesses left".format(guesses_left))
+            print("You already guessed that number! Please try again "
+                  "you still have {} guesses left".format(guesses_left))
             continue
 
         guesses_left -= 1
@@ -153,9 +154,6 @@ while end_game == "no":
                 print("Too low!")
             elif guess > secret:
                 print("Too high!")
-
-            # compare guess to secret number
-        print("Pretend we've compared")
 
         if guess == secret:
             rounds_won += 1
