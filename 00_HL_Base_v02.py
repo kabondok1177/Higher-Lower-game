@@ -27,6 +27,9 @@ def instructions():
           "the rounds in a given game.")
     print("The computer will calculate how many guesses you are allowed")
     print("enter the number of rounds you want to play")
+    print()
+    print("press enter for INFINITE mode")
+    print()
     print("guess the secret number")
     print()
     print("*** Good Luck! :)  ***")
@@ -99,6 +102,8 @@ if played_before == "no":
 #  Ask user number of rounds <enter> for infinite
 rounds = int_check("How many rounds would you like to play?", 1, exit_code="")
 
+print()
+
 if rounds == "":
     mode = "infinite"
     rounds = 5
@@ -118,6 +123,7 @@ while end_game == "no":
     rounds_played += 1
 
     secret = random.randint(low_number, high_number)
+    print(f"Spoiler alert: {secret}")
 
     guesses_allowed = max_guesses
     already_guessed = []
@@ -127,7 +133,8 @@ while end_game == "no":
     while True:
 
         guess = int_check("Guess (or 'xxx' to exit): ", low_number, high_number, "xxx")
-        print("you guessed", guess)
+        print()
+        print("You guessed", guess)
 
         if guess == "xxx":
             end_game = "yes"
@@ -146,9 +153,11 @@ while end_game == "no":
 
             if guess < secret:
                 print("Too low,try a higher number. Guesses left:")
+                print()
 
             elif guess > secret:
                 print("Too high, try a lower number. Guesses left:")
+                print()
         else:
             if guess < secret:
                 print("Too low!")
@@ -157,6 +166,8 @@ while end_game == "no":
 
         if guess == secret:
             rounds_won += 1
+            print("well done you got it")
+            print()
             break
 
     # check if we are out of rounds

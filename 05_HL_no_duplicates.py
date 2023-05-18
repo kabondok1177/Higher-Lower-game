@@ -5,7 +5,7 @@
 # when user guesses, add guess to list
 # for each guess, check that number is not in already_guessed
 
-# HL component 5 - Prevents duplicates guesses
+# HL -component 5 - Prevents duplicates guesses
 
 SECRET = 7
 guesses_allowed = 5
@@ -44,5 +44,4 @@ while guess != SECRET and guesses_left >= 1:
 
     if guess == SECRET:
         print("well done")
-
 
